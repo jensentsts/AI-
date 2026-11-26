@@ -1,51 +1,39 @@
-# 03 独立红队裁决与决策点 1 简报（审稿人-2）
+# 03 Independent Red-Team Verdict and Decision Point 1
 
-- **研究主题**：{{TOPIC}}
-- **目标期刊**：{{JOURNAL}}
-- **审查日期**：{{DATE}}
-- **上下文隔离确认**：本报告由独立红队子智能体仅基于 `01_assumption_failure_matrix.md` 与 `02_candidate_proposals.md` 完成，覆盖全部候选方案（零静默遗漏）。
+- **研究主题 / Topic**：{{TOPIC}}
+- **目标期刊 / Journal**：{{JOURNAL}}
+- **审查日期 / Review date**：{{DATE}}
+- **Reviewer context**：Use the raw sources needed to check the claim. A paper’s future-work paragraph is evidence that the idea was already suggested, not a source of a new idea. Compare the candidate with the closest implementation and outlook before assigning a prior relation.
 
----
+## Summary verdict table
 
-## 一、总览裁决表
+Add exactly one row for each proposal ID in 02, including rejected or deferred proposals. A valid verdict is `PASS`, `REVISE`, `KILL`, or `DEFER`.
 
-| 方案 | 核心路线简述 | 闸门 1（同构查重） | 闸门 2（抗强朴素基线） | 闸门 3（紧致与术语克制） | 最终裁决 | 推荐优先级 |
+<!-- section:verdict_table -->
+| Proposal ID | Claim type | Route summary | Gate record | Final verdict | Reason | Priority |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `P1` | 【简述】 | 【通过/风险/撞车】 | 【通过/薄弱/被打穿】 | 【通过/需精简/造词过重】 | `【PASS/REVISE/KILL】` | 【1 / 2 / —】 |
-| `P2` | 【简述】 | 【通过/风险/撞车】 | 【通过/薄弱/被打穿】 | 【通过/需精简/造词过重】 | `【PASS/REVISE/KILL】` | 【1 / 2 / —】 |
+| P1 | {{FILL:method, theory, or phenomenon}} | {{FILL:one-line route}} | {{FILL:search, prior comparison, and claim-specific checks}} | {{FILL:PASS / REVISE / KILL / DEFER}} | {{FILL:decision reason}} | {{FILL:rank or —}} |
 
----
+## Review P1
+<!-- section:review_P1 -->
+- <!-- field:steelman --> **Steelman of this exact proposal**：{{FILL:state its strongest defensible version before attacking it}}
+- <!-- field:prior_query --> **Prior search query**：{{FILL:exact abstracted query terms}}
+- <!-- field:prior_sources --> **Prior search sources**：{{FILL:databases or catalogs actually searched}}
+- <!-- field:prior_date --> **Prior search date**：{{FILL:actual search date}}
+- <!-- field:prior_scope --> **Prior search boundary**：{{FILL:years, fields, filters, and other limits}}
+- <!-- field:prior_result --> **Prior search result**：{{FILL:closest-work locator(s), or a bounded no-hit result}}
+- <!-- field:prior_relation --> **Prior relation**：{{FILL:INDEPENDENT, KNOWN, PRIOR-SUGGESTED, or UNCLEAR}}
+- <!-- field:prior_difference --> **Difference from closest implementation and author outlook**：{{FILL:compare the exact mechanism, assumptions, and result; cite source locations}}
+- <!-- field:m2 --> **Strong naive baseline for a method claim**：
+- <!-- field:strongest_prior --> **Strongest prior result for a theory claim**：
+- <!-- field:alternate_explanation --> **Strong rival explanation for a phenomenon claim**：
+- <!-- field:verification_artifacts --> **Planned verification artifacts, if PASS**：
+- <!-- field:risks --> **Concrete risks and mitigation, if PASS**：
+- <!-- field:kill_defer_reason --> **Reason for KILL or DEFER**：
+- <!-- field:revise_action --> **Bounded REVISE action**：
 
-## 二、幸存方案深度审查（仅列 `PASS` 或高潜力 `REVISE`）
+## Author decision 1
 
-### 方案 `【P_x】`（裁决：`【PASS / REVISE】`）
-- **最强版本复述（Steelman First）**：【先用 1–2 句话客观提炼该方案最站得住脚的核心版本，再对其发起攻击】
-- **闸门 1 同构查重记录**：
-  - **去外壳抽象检索词**：【列出实际执行的 2–3 组抽象数学+大类问题检索词与检索日期】
-  - **覆盖检索源**：【WoS / Elsevier / arXiv / IEEE 等】
-  - **最接近的 2–3 篇文献及本质差异**：【列出文献与硬差异，确认在当前检索边界内未撞车且无上位替代】
-- **闸门 2 红队构造的强朴素基线（`M2`，阶段 4 强制必测对手）**：
-  - 【精确定义如何用 10 行代码级微调/常规求解器构造最强朴素对手 `M2`】
-- **闸门 2 事前验尸——虚假胜出排查清单（Apparent-Win Artifact Audit，≥2 条）**：
-  1. 【非创新伪原因 1，例如：调参不对称或隐藏约束松弛】→ 阶段 4 防伪核验动作：【具体检查法】
-  2. 【非创新伪原因 2，例如：前视信息泄露或算例过易退化】→ 阶段 4 防伪核验动作：【具体检查法】
-- **闸门 3 紧致度、五维不变量与术语去包装检查**：
-  - **建议砍掉的冗余模块**：【无 / 明确指出装饰性模块】
-  - **不变量与术语去包装结果**：【剥掉新名词后是否依然扎实；若含 O3 迁移，五维不变量是否无硬伤】
-- **最致命的潜在审稿攻击点（Top 2）**：
-  1. 【攻击点 1】→ 建议阶段 4 验证动作：【具体测试或边界校验】
-  2. 【攻击点 2】→ 建议阶段 4 验证动作：【具体测试或边界校验】
+This field remains blank until the author makes an actual decision. Enter only exact proposal IDs that received `PASS`, separated by `+` or `,`. A blank field means review is recorded and the handoff is pending. `KILL`, `DEFER`, and `REVISE` are valid recorded outcomes and do not advance to verification.
 
----
-
-## 三、被淘汰/暂缓方案墓志铭（防止后续绕回死胡同）
-
-- **方案 `【P_y】`（`KILL / DEFERRED`）**：【一句话写清致命伤、撞车文献或被朴素基线打穿的原因；若无淘汰方案请写明“无”】
-
----
-
-## 四、人类决策点 1（请作者拍板后方可进入阶段 4）
-
-- [ ] **选项 A（推荐）**：批准方案【`P_x`】进入阶段 4 预注册 MVP 仿真，强制对阵红队登记的 `M2`；
-- [ ] **选项 B**：批准【`P_x` + `P_y`】双线并行跑 MVP，按实测数据择优；
-- [ ] **选项 C**：按指定方向退回阶段 1–2 修正或重选路线。
+- <!-- field:selected --> **Author-approved proposal ID(s) for verification**：

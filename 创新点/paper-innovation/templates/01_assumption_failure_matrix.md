@@ -1,45 +1,68 @@
-# 01 假设—权衡—失效矩阵与结构性矛盾清单
+# 01 Literature Evidence and Assumption–Failure Matrix
 
-- **研究主题**：{{TOPIC}}
-- **目标期刊**：{{JOURNAL}}
-- **创建日期**：{{DATE}}
-- **检索日期、数据库与排除边界**：【填写检索日期、检索库（如 WoS / Elsevier / arXiv / IEEE）、检索词、年份窗口及排除规则】
-- **人类种子思路（Human Seeds，检索前冻结）**：【记录作者初始直觉、现场痛点或拟试方向；若无则填“无”】
+- **研究主题 / Topic**：{{TOPIC}}
+- **目标期刊 / Journal**：{{JOURNAL}}
+- **日期 / Date**：{{DATE}}
+- **检索范围 / Search scope**：{{FILL:databases, query terms, date window, and exclusion boundary}}
+- **检索前的人类种子思路 / Frozen human seed**：{{FILL:write the initial intuition, or “none”}}
 
----
+Before the search, record the target claim, available measurements, required but missing data, and the solver or time budget where relevant. Keep the original wording of the author's question for the provenance check.
 
-## 一、纵向本领域文献病灶矩阵（线 A，建议 15–30 篇近 5 年代表作）
+## 0. Independent idea origins
 
-> 每条记录必须包含可核验标识（DOI / arXiv ID / PII / 本地文件名）与阅读深度（`full-text` 或 `abstract-only`）；核心矛盾支点及拟选 `M1` SOTA 须为 `full-text`。
+Use `user`, `observation`, `constraint`, or `derivation`. Give the author's original question, an observation record, an actual constraint, or an independently dated derivation. Record the provenance even if the question was supplied after the search.
 
-| 编号 / 年份 / 期刊 | 溯源标识与深度 | 研究对象与核心方法 | 隐含前提与理想化假设 | 数学建模或求解瓶颈 | 被迫做出的核心权衡（Trade-off） | Case Study 回避盲区 / 失效工况 |
+<!-- section:idea_origins -->
+| ID | Origin type | Independent problem | Own source anchor |
+| :--- | :--- | :--- | :--- |
+
+## 0.1 Literature as callable objects
+
+Choose the object's role from `method`, `theorem`, `data`, `constraint`, `baseline`, or `observation`. Reuse its work ID from the evidence register and specify what it takes, what it returns, and when it applies. Leave the table empty when no object is needed.
+
+<!-- section:literature_objects -->
+| ID | Role | Inputs | Preconditions | Known operation | Outputs | Applicability boundary |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `[1] 【年份 期刊】` | 【DOI/arXiv + `full-text`】 | 【方法简述】 | 【默认理想假设】 | 【卡壳的数学/求解点】 | 【指标 A vs. 指标 B】 | 【未测工况或退化点】 |
-| `[2] 【年份 期刊】` | 【DOI/arXiv + `full-text`】 | 【方法简述】 | 【默认理想假设】 | 【卡壳的数学/求解点】 | 【指标 A vs. 指标 B】 | 【未测工况或退化点】 |
 
----
+## 1. Unique-paper evidence register
 
-## 二、横向跨领域数学工具检索表（线 B，剥离行业外壳防锚定）
+Use one row per work. `Work ID` and `Evidence source IDs` are citation keys (for example `L1`). Give each work a DOI, arXiv ID, PII, or an existing local paper path. Mark the reading depth exactly `full-text` or `abstract-only`. Pinpoint findings to pages, equations, figures, tables, or theorems. The validator counts canonical works once even when aliases or duplicate rows recur. Older original papers and theories remain eligible evidence.
 
-| 工具编号 | 抽象数学/系统结构（去行业名词） | 相邻顶刊/顶会工具名称与出处 | 核心优势 | 直接迁移到本领域的硬障碍（五维不变量视角） |
+<!-- section:literature_table -->
+| Work ID | Year / journal / title | Canonical locator (DOI / arXiv / PII) | Local full-text path (optional) | Depth | Evidence source IDs | Finding or claim | Pinpoint(s) | Evidence status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| L1 | {{FILL:year, venue, and short title}} | {{FILL:stable DOI, arXiv ID, or PII}} |  | {{FILL:full-text or abstract-only}} | {{FILL:L1}} | {{FILL:one finding, assumption, or reported result}} | {{FILL:L1 p. X / Eq. (Y) / Fig. Z / Theorem N}} | {{FILL:reported, reproduced, or pending}} |
+
+### Author outlooks for the independent reviewer
+
+When the authors explicitly suggest a next step relevant to the project, record it with its source location here. The reviewer uses this entry to check prior suggestions, including paraphrases. This table stays outside the generation brief.
+
+| Work ID | Future Work | Page or section |
+| --- | --- | --- |
+
+## 2. Cross-domain tools (required for full method exploration)
+
+For `full` mode with a method claim, add at least two tools from distinct neighboring fields. State the abstract structure, source, benefit, and hard migration barrier. Other claim families and focused modes may leave this table empty.
+
+<!-- section:cross_domain_table -->
+| Tool ID | Abstract mathematical or system structure | Source work ID / locator | Advantage | Migration barrier (units, timing, observability, discreteness, nonconvexity, scale) |
 | :--- | :--- | :--- | :--- | :--- |
-| `T1` | 【抽象数学问题描述】 | 【工具名 + 年份/顶刊出处】 | 【解决何种结构难题】 | 【直接套用时的量纲/时延/离散/非凸/维度硬障碍】 |
-| `T2` | 【抽象数学问题描述】 | 【工具名 + 年份/顶刊出处】 | 【解决何种结构难题】 | 【直接套用时的量纲/时延/离散/非凸/维度硬障碍】 |
 
----
+## 3. Conflict and hypothesis records
 
-## 三、结构性矛盾清单（3–5 条，须跨多篇 `full-text` 文献共现）
+Copy a section for each additional `C` ID. Full exploration needs at least two distinct records. Choose scope `recurring`, `original-theory`, or `hypothesis`; choose evidence status `reported`, `reproduced`, or `pending`. A recurring literature conflict needs at least three distinct full-text works, each with a pinpoint. An original result can cite its source without a recency cutoff. A hypothesis may begin with one source, but must name an observation and a falsifier.
 
-### 矛盾 C1：【一句话概括结构性冲突】
-- **受影响代表文献**：【例如 `[1], [4], [7]`】
-- **现有主流妥协方式**：【当前文献如何绕开或妥协】
-- **妥协带来的工程代价**：【量化或机理说明其越限/失稳/耗时/经济代价】
-- **抽象数学结构**：【去行业外壳后的标准数学表述】
-- **匹配到的横向工具**：【`T1` 等，或写明需从物理机理侧重构】
+### Structural conflict C1
+<!-- section:conflict_C1 -->
+- <!-- field:claim --> **Claim / conflict statement**：{{FILL:state the precise assumption, trade-off, failure, or hypothesis}}
+- <!-- field:claim_scope --> **Claim scope**：{{FILL:recurring, original-theory, or hypothesis}}
+- <!-- field:evidence_status --> **Evidence status**：{{FILL:reported, reproduced, or pending}}
+- <!-- field:evidence_sources --> **Evidence source IDs**：{{FILL:L1; L2; L3, as applicable}}
+- <!-- field:pinpoints --> **Pinpoints by source**：{{FILL:L1 p. X; L2 Eq. (Y); L3 Fig. Z}}
+- <!-- field:observation --> **Observed result or discriminating observation**：{{FILL:what was reported, reproduced, or can be observed}}
+- <!-- field:falsifier --> **Falsifier, if still a hypothesis**：
+- <!-- field:result_artifact --> **Existing result artifact, if reproduced**：
 
-### 矛盾 C2：【一句话概括结构性冲突】
-- **受影响代表文献**：【文献编号】
-- **现有主流妥协方式**：【当前妥协】
-- **妥协带来的工程代价**：【工程代价】
-- **抽象数学结构**：【抽象表述】
-- **匹配到的横向工具**：【对应工具】
+## 4. Evidence interpretation
+
+Use `reported` only for a result located in the cited source, `reproduced` only with your own case and result location, and `pending` for an inference that still needs a test. Record missing data as a boundary on the claim. Do not treat a search gap as evidence that no earlier theory exists.

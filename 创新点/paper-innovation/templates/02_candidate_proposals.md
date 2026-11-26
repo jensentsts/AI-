@@ -1,57 +1,50 @@
-# 02 候选创新方案书（阶段 2）
+# 02 Candidate Proposals
 
-- **研究主题**：{{TOPIC}}
-- **目标期刊**：{{JOURNAL}}
-- **创建日期**：{{DATE}}
-- **约束阶梯与反同质化记录**：【简述三阶约束阶梯变换如何拉开 P1–P4 的路线差异；是否包含人类种子思路衍生方案与反向路线】
-- **伪创新红线自查声明**：以下候选方案均已排除「换壳缝合怪」「无耦合拼接」「造词驱动」「不可消融」四类伪创新。
+- **研究主题 / Topic**：{{TOPIC}}
+- **目标期刊 / Journal**：{{JOURNAL}}
+- **日期 / Date**：{{DATE}}
+- **How to use**：Start with one proposal. Copy the whole section and assign the next exact ID (`P2`, `P1-v2`, etc.) when the selected mode requires more proposals. `full` needs at least two candidates; `single`, `revision`, and `local-pdf` may use one.
+- **Source rule**：Papers are callable objects only. Do not use an author’s outlook, future-work paragraph, or unexecuted suggestion as the origin of a new idea. If an author-supplied idea overlaps a prior work, stop or revise it and record the difference. A familiar problem, constraint, observation, or derivation may be an independent origin when its provenance is recorded.
+- **Generation order**：A fresh generator receives the independent Q-origin brief plus sanitized L interfaces, then returns a neutral `idea_draft`. It may choose L calls and must record their supplied inputs and output use in the bindings table; it does not see raw 01 papers or receive their outlook as idea prompts. Afterward, the evidence coordinator adds and verifies C IDs, raw M1 citations, pinpoints, and source provenance. The coordinator may validate the generator’s source and delta but must not rewrite them or retrofit an L call.
 
----
+## Proposal P1
+<!-- section:proposal_P1 -->
+- <!-- field:claim --> **Claim type**：{{FILL:method, theory, or phenomenon}}
+- <!-- field:claim_statement --> **Research claim**：{{FILL:one specific, falsifiable sentence}}
+- <!-- field:conflict_ids --> **Structural conflict IDs**：{{FILL:C1, etc. from 01}}
+- <!-- field:origin_ids --> **Independent origin IDs**：{{FILL:one or more Q IDs}}
+- <!-- field:calls --> **Called literature-object IDs**：{{FILL:L1 list, or NONE}}
+- <!-- field:novel_delta --> **Novel delta beyond those objects**：{{FILL:the exact operation, assumption, boundary, or result that changes}}
+- <!-- field:generation --> **Generation**：{{FILL:fresh or author-supplied}}
+- <!-- field:brief_sha256 --> **Safe-brief SHA-256 (fresh proposals only)**：
 
-## 方案 P1：【具象化、场景化的拟定题目方向】
+### Callable bindings
 
-- **当前生命周期状态**：`literature-grounded`
-- **瞄准的结构性矛盾**：【`C1` + 一句话痛点（须存在于 `01_assumption_failure_matrix.md`）】
-- **采用构造算子**：【填写 `O1`–`O6` 中的 1–2 个，例如 `O2 + O3`】
-- **核心数学/机理改动（写透因果，禁止空话）**：
-  1. 【改动哪一层模型/约束/算法结构】
-  2. 【为何在数学或物理上能打破原有瓶颈】
-  3. 【若含 `O3` 跨领域迁移，按「量纲守恒 / 时间尺度 / 可观测性 / 离散非凸边界 / 维度扩展」说明直接搬运的硬障碍与本文定向改造】
-- **区分性预测与证伪条件（Discriminating Prediction）**：
-  - **最强现有 SOTA（`M1`）**：【文献编号 + 预计胜出的具体指标与机理】
-  - **强朴素适配版（Naive Adaptation）**：【把现有方法改 10 行代码套到本问题会怎么做？它在哪类明确工况下必然失效？】
-  - **直接证伪条件**：【出现什么实测现象即可判定本思路不成立】
-- **模块—消融—图表预映射**：
+The generator records each selected L ID, supplied inputs, and how the returned output is used. Leave this table empty when `calls` is `NONE`.
 
-| 贡献模块 | 对应核心公式/机制 | 消融变体与预期退化指标 | 对应论文主图设想 |
-| :--- | :--- | :--- | :--- |
-| 模块 A（建模层） | 【具体机制】 | `w/o A` → 【预期恶化的具体指标】 | 【机理/架构示意图】 |
-| 模块 B（方法层） | 【具体机制】 | `w/o B` → 【预期恶化的具体指标】 | 【收敛/对比曲线图】 |
+<!-- section:call_bindings -->
+| ID | Supplied inputs | Use of output |
+| :--- | :--- | :--- |
 
-- **预判工程风险与潜在缺陷（诚实列出供红队与人类核查）**：
-  - 【风险 1：如大规模算例求解耗时、超参数敏感度、近似误差边界等】
+### Method claim fields (fill only when Claim type is `method`)
+- <!-- field:operators --> **Construction operator(s)**：
+- <!-- field:m1 --> **M1: closest full-text method, source ID, and pinpoint**：
+- <!-- field:m2 --> **Strong naive baseline**：
+- <!-- field:prediction --> **Discriminating prediction and observable metric**：
+- <!-- field:falsifier --> **Falsifier: condition and observable result that would refute the claim**：
+- <!-- field:ablation --> **Ablation variant**：
+- <!-- field:ablation_outcome --> **Expected ablation outcome**：
 
----
+### Theory claim fields (fill only when Claim type is `theory`)
+- <!-- field:implication --> **Implication test against the closest prior result**：
+- <!-- field:witness --> **Witness or counterexample for the claimed boundary**：
 
-## 方案 P2：【与 P1 技术哲学明显正交的第二候选方向】
+### Phenomenon claim fields (fill only when Claim type is `phenomenon`)
+- <!-- field:rival_explanation_a --> **Rival explanation A**：
+- <!-- field:rival_explanation_b --> **Rival explanation B**：
+- <!-- field:prediction_a --> **Different prediction under explanation A**：
+- <!-- field:prediction_b --> **Different prediction under explanation B**：
+- <!-- field:data_observation --> **Data and observation that separate the explanations**：
 
-- **当前生命周期状态**：`literature-grounded`
-- **瞄准的结构性矛盾**：【`C2` + 一句话痛点】
-- **采用构造算子**：【填写与 P1 不同的算子组合，例如 `O1 + O5`】
-- **核心数学/机理改动（写透因果，禁止空话）**：
-  1. 【改动内容】
-  2. 【打破瓶颈的机理】
-  3. 【硬耦合机制或迁移不变量核查】
-- **区分性预测与证伪条件（Discriminating Prediction）**：
-  - **最强现有 SOTA（`M1`）**：【文献编号 + 预计胜出指标与机理】
-  - **强朴素适配版（Naive Adaptation）**：【朴素适配做法及其必然失效的工况】
-  - **直接证伪条件**：【出现什么实测现象即可判定本思路不成立】
-- **模块—消融—图表预映射**：
-
-| 贡献模块 | 对应核心公式/机制 | 消融变体与预期退化指标 | 对应论文主图设想 |
-| :--- | :--- | :--- | :--- |
-| 模块 A | 【具体机制】 | `w/o A` → 【预期恶化指标】 | 【示意图设想】 |
-| 模块 B | 【具体机制】 | `w/o B` → 【预期恶化指标】 | 【对比图设想】 |
-
-- **预判工程风险与潜在缺陷**：
-  - 【诚实列出最大工程与理论隐患】
+### Risks
+- <!-- field:risks --> **Known technical, data, proof, and scale risks**：
